@@ -1,8 +1,11 @@
 import subprocess
+import operator
 
 from os import listdir
 from os.path import isfile, join
 
+def sort_dict_by_value(dictionary, reverse=False):
+    return sorted(dictionary.items(), key=operator.itemgetter(1), reverse=reverse)
 
 def get_files_paths_for_folder(path):
     files = [join(path, f) for f in listdir(path) if isfile(join(path, f))]
